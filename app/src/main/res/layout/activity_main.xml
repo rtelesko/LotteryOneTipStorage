@@ -12,43 +12,43 @@
         android:id="@+id/btGenerateNumbers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp"
-        android:text="@string/generateNumbers"
-        android:onClick="generateNumbers"/>
+        android:onClick="generateNumbers"
+        android:text="@string/generateNumbers" />
 
     <TextView
         android:id="@+id/tvResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:maxLines="2"
-        android:layout_marginTop="16dp" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:maxLines="2" />
 
     <TextView
         android:id="@+id/tvValidation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp" />
 
     <Button
         android:id="@+id/btStore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp"
-        android:text="@string/storeData"
-        android:onClick="storeData"/>
+        android:onClick="storeData"
+        android:text="@string/storeData" />
 
     <Button
         android:id="@+id/btRetrieve"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp"
-        android:text="@string/retrieveData"
-        android:onClick="retrieveData"/>
+        android:onClick="retrieveData"
+        android:text="@string/retrieveData" />
 
 </LinearLayout>
 

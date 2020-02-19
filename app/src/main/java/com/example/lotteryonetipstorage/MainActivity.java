@@ -64,16 +64,17 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < numbers.length; i++) {
             for (int j = i + 1; j < numbers.length; j++) {
                 if (numbers[i] == numbers[j])
-                    valid = false;  // Got a duplicate element
+                    return false;  // Got a duplicate element
             }
         }
-        return valid;
+        return true;
     }
 
     // Store data to SharedPreferences
     public void storeData(View view) {
 
         if (validationCheck()) {
+            // MODE_PRIVATE: By setting this mode, the file can only be accessed using calling application
             lottery = getApplicationContext().getSharedPreferences(USER_PREF, MODE_PRIVATE);
             SharedPreferences.Editor edit = lottery.edit();
             edit.clear();
@@ -84,7 +85,9 @@ public class MainActivity extends AppCompatActivity {
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             time = dateFormat.format(new Date());
             edit.putString("time", time);
-
+            /* commit() writes the data synchronously (blocking the thread its called from). It then informs you about the success of the operation.
+            * apply() schedules the data to be written asynchronously. It does not inform you about the success of the operation.
+            */
             edit.commit();
             Toast.makeText(getApplicationContext(), "Storage successful!", Toast.LENGTH_LONG).show();
         } else
