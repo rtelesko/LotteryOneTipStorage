@@ -19,14 +19,13 @@ public class MainActivity extends AppCompatActivity {
     public static final String USER_PREF = "myPrefs";
     // Constants
     static final int LOTTO_NUMBERS = 6;
+    String time;
     // GUI Controls
     private TextView tvResult;
     private TextView tvValidation;
     private SharedPreferences lottery;
-
     // Data to be stored
     private int numbers[] = new int[LOTTO_NUMBERS];
-    String time;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
             time = dateFormat.format(new Date());
             edit.putString("time", time);
             /* commit() writes the data synchronously (blocking the thread its called from). It then informs you about the success of the operation.
-            * apply() schedules the data to be written asynchronously. It does not inform you about the success of the operation.
+               apply() schedules the data to be written asynchronously. It does not inform you about the success of the operation.
             */
             edit.commit();
             Toast.makeText(getApplicationContext(), "Storage successful!", Toast.LENGTH_LONG).show();
@@ -98,13 +97,22 @@ public class MainActivity extends AppCompatActivity {
     public void retrieveData(View view) {
 
         lottery = getApplicationContext().getSharedPreferences(USER_PREF, MODE_PRIVATE);
-        time = lottery.getString("time", null);
 
+        time = lottery.getString("time", null);
+        /* default value for time = null
+        If the variable was never accessed by the user or was never created,
+        the system will set the default value as value and if you or changed
+        this value, the default value is ignored.
+        */
         if (time != null) {      // SharedPreferences not empty
             // Show result in TextView "tvResult"
             tvResult.setText("");
             tvValidation.setText("");
-            // Delay of 2sec for showing the retrieved data
+            /* A Handler allows you communicate back with the UI thread from
+            other background thread. This is useful in Android as Android doesn't
+            allow other threads to communicate directly with UI thread.
+            Application here: Delay of 2sec for showing the retrieved data
+            */
             Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
