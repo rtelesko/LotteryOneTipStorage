@@ -59,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
 
     // Validation: Check for duplicates in array
     private boolean validationCheck() {
-        boolean valid = true;   // Initial setting
         for (int i = 0; i < numbers.length; i++) {
             for (int j = i + 1; j < numbers.length; j++) {
                 if (numbers[i] == numbers[j])
