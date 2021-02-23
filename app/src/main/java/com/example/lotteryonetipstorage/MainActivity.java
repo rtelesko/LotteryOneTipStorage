@@ -16,15 +16,17 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String USER_PREF = "myPrefs";
     // Constants
     static final int LOTTO_NUMBERS = 6;
-    String time;
+    public static final String USER_PREF = "myPrefs";
+
     // GUI Controls
     private TextView tvResult;
     private TextView tvValidation;
     private SharedPreferences lottery;
+
     // Data to be stored
+    String time;
     private int numbers[] = new int[LOTTO_NUMBERS];
 
     @Override
@@ -52,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
             tvValidation.setText("Validation OK");
         } else {
             tvValidation.setTextColor(new Color().parseColor("#FF0000"));
-            tvValidation.setText("Validation NOT OK - Please may a new try!");
+            tvValidation.setText("Validation NOT OK - Please make a new try!");
         }
     }
 
