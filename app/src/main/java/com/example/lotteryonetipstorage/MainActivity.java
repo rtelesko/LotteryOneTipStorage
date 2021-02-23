@@ -77,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
             // MODE_PRIVATE: By setting this mode, the file can only be accessed using calling application
             lottery = getApplicationContext().getSharedPreferences(USER_PREF, MODE_PRIVATE);
             SharedPreferences.Editor edit = lottery.edit();
-            edit.clear();
             for (int i = 0; i < LOTTO_NUMBERS; i++) {
                 edit.putInt("number" + (i + 1), numbers[i]);
             }
